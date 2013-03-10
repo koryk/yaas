@@ -23,9 +23,10 @@ And unpack to a local directory of your choosing
 Install Yii
 -----------
 Then clone the latest read-only master branch of yii framework into common/lib/yii/ directory
+```
 $ cd common/lib
 $ git clone https://github.com/yiisoft/yii.git yii
-
+```
 or you can download the desired version of the framework and move the contents of framework/ over to
 common/lib/yii. When completed, ensure that common/lib/yii/framework/yii.php exists.
 
@@ -40,7 +41,7 @@ Deploy the development environment
 6. Copy *console/env/development/yiic.php* to *console/*
 7  Copy all files from *common/env/development/config/* to *common/config/*
 
-$ cp -R backend/env/development/config/ backend/config/; cp -R backend/env/development/www/ backend/www/; cp -R frontend/env/development/config/ frontend/config/; cp -R frontend/env/development/www/ frontend/www/; cp -R console/env/development/config/ console/config/; cp -R console/env/development/yiic.php console/; cp -R common/env/development/config/params-local.php common/config/
+    $ cp -R backend/env/development/config/ backend/config/; cp -R backend/env/development/www/ backend/www/; cp -R frontend/env/development/config/ frontend/config/; cp -R frontend/env/development/www/ frontend/www/; cp -R console/env/development/config/ console/config/; cp -R console/env/development/yiic.php console/; cp -R common/env/development/config/params-local.php common/config/
 
 Ensure web server has read + write access to the following directories:
 -----------------------------------------------------------------------
