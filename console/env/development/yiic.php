@@ -6,4 +6,4 @@ $root=dirname(__FILE__);
 $config=$root.'/config/main-local.php';
 
 require_once($root.'/../common/lib/global.php');
-require_once($root.'/../common/lib/yii/yiic.php');
+require_once($root.'/../common/lib/yii/framework/yiic.php');
