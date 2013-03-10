@@ -30,18 +30,23 @@ $ git clone https://github.com/yiisoft/yii.git yii
 or you can download the desired version of the framework and move the contents of framework/ over to
 common/lib/yii. When completed, ensure that common/lib/yii/framework/yii.php exists.
 
-Deploy the development environment
-----------------------------------
-####copy development specific environment files from the env/development/ directory for each application
-1. Copy all files from *backend/env/development/config/* to *backend/config/*
-2. Copy all files from *backend/env/development/www/* to  *backend/www/*
-3. Copy all files from *frontend/env/development/config/* to *frontend/config/*
-4. Copy all files from *frontend/env/development/www/* to *frontend/www/*
-5. Copy all files from *console/env/development/config/* to *console/config/*
-6. Copy *console/env/development/yiic.php* to *console/*
-7  Copy all files from *common/env/development/config/* to *common/config/*
+Deploy command
+--------------
+By default, yaas comes with three environments:
+* local
+* develpment
+* production
 
-    $ cp -R backend/env/development/config/ backend/config/; cp -R backend/env/development/www/ backend/www/; cp -R frontend/env/development/config/ frontend/config/; cp -R frontend/env/development/www/ frontend/www/; cp -R console/env/development/config/ console/config/; cp -R console/env/development/yiic.php console/; cp -R common/env/development/config/params-local.php common/config/
+Configure your environments
+---------------------------
+/console/config/params.php contains the configuration for the deploy command.
+```php
+	'environments' => array(
+		'local' => array(
+			'alias' => array('loc'),
+			'parameters' => ''
+		),
+```
 
 Ensure web server has read + write access to the following directories:
 -----------------------------------------------------------------------
@@ -50,6 +55,10 @@ backend/www/assets/
 console/runtime/  
 frontend/runtime/  
 frontend/www/assets/
+
+Configure git to ignore filemode changes:
+-----------------------------------------
+    $ git config core.filemode false
 
 Setup Web Document Roots
 ------------------------
@@ -65,5 +74,11 @@ One Other Quick Config Change
 Now that you have your frontend hostname setup, change the frontend.url setting in common/config/params-local.php to to match your setting
 
 
-
-
+TODO
+----
+- Build deploy command with 3 environments
+ * local (for a local machine)
+ * development (for a remote box in a development environment)
+ * production (for production level)
+- Create comment headers for current codebase (SiteController, etc.) 
+- Create coding style guide https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md http://www.yiiframework.com/doc/guide/1.1/en/basics.convention#code
